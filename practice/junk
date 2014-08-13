@@ -1,0 +1,1 @@
+foo (bar ( new Point(x, graph.getY()) ));

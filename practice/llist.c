@@ -102,7 +102,7 @@ void Append(NodePtr* aRef, NodePtr* bRef)
     printList(*aRef);
     printList(*bRef);
 
-    if(*aRef == NULL) /* if a is empty, append is just adding b to the new list
+    if(*aRef == NULL) /* if a is empty, append is just adding b to the new list */
     {
         *aRef = *bRef;
     }
@@ -122,11 +122,28 @@ void Append(NodePtr* aRef, NodePtr* bRef)
     printf("At the end of Append():\n");
 }
 
+static void Reverse(NodePtr* headRef)
+{
+    NodePtr result = NULL; // reversed list goes here
+    NodePtr cur = *headRef;
+    NodePtr next_saved;
+
+    while(cur != NULL)
+    {
+        next_saved = cur->next; // save the next node
+        cur->next = result;
+        result    = cur;       // move this node onto result
+        cur       = next_saved; //advance the pointer via next_saved
+    }
+   *headRef = result; 
+}
+
+
 void Delete(NodePtr* headRef)
 {
    NodePtr cur = *headRef; // deref the real head to get the real head
    NodePtr tmp;
-   printf("Inside Delete: with headRef = 0x%08x\n", (uintptr_t)*headRef);
+   printf("Inside Delete: with headRef = 0x%04x\n", (UINT)(*headRef));
    while(cur != NULL)
    {
        tmp = cur->next; //save the next ptr
@@ -141,7 +158,6 @@ int main(int argc, char* argv[])
 {
         
     NodePtr head = NULL;
-#if 0
     NodePtr second = NULL;
     NodePtr third = NULL;
 
@@ -169,13 +185,18 @@ int main(int argc, char* argv[])
     Push(&head, 23);
     Push(&head, 35);
 
+    printf("Before reverse:\n");
     printList(head);
+    Reverse(&head);
+    printf("After reverse:\n");
+    printList(head);
+
     int count = countIntInList(head, 1);
     printf("count of %d in list is : %d\n", 1, count);
     
     printf("Third item in list is : %d\n", getNth(head, 3) );
-#endif    
 
+#if 0
     printf("Test code for append()\n");
 
     NodePtr a;
@@ -201,13 +222,14 @@ int main(int argc, char* argv[])
     printList(a);
 
     free(head);
+#endif    
 #if 0
     free(second);
     free(third);
     free(newNode);
-#endif
     free(a);
     free(b);
+#endif
   
     return 0; 
 }

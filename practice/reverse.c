@@ -1,10 +1,17 @@
+/*  
+ * C function to reverse a string of characters.   
+     
+    $Author$: Kalyan Subramanian
+    $email$: kalyan dot sub at gmail
+    $Date$: Aug 20th, 2014 
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
 void reverse(char* s);
  
-#if 0
+#if 1
 
 int main(int argc, char* agv[])
 {

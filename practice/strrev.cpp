@@ -1,3 +1,10 @@
+/*  
+ * C++ code to reverse a given string of characters in place.  
+     
+    $Author$: Kalyan Subramanian
+    $email$: kalyan dot sub at gmail
+    $Date$:  Aug 24, 2014
+*/
 #include <iostream>
 #include <cstring>
 

@@ -53,6 +53,7 @@ char Fifo::pop(void)
     char ch = '\0';
     if ( ! isEmpty() )
     {
+        //cout << "pop(): current position of FIFO read ptr = " << (m_Size - m_CurPos) << "\n";
         ch = m_Elements[(m_Size - m_CurPos)];
         --m_CurPos;
     }
@@ -60,6 +61,13 @@ char Fifo::pop(void)
     return ch;
 }
 
+char Fifo::print(void)
+{
+   for(int i = 0; i <= m_Size; ++i)
+   {
+       cout << "FIFO contains: [" << m_Elements[i] << "] at posistion: " << i << "\n";
+   }
+}
 
 int main(int argc, char* argv[])
 {
@@ -76,16 +84,19 @@ int main(int argc, char* argv[])
     myfifo.push('d');
     myfifo.push('e');
 
+    cout << "Contents of FIFO after successive push() calls: \n";
+    cout << myfifo.print();
+
     ch = myfifo.pop();
-    cout << "Popped ch = " << ch << "\n"; 
+    cout << "Popped ch = [" << ch << "]\n"; 
     ch = myfifo.pop();
-    cout << "Popped ch = " << ch << "\n"; 
+    cout << "Popped ch = [" << ch << "]\n"; 
     ch = myfifo.pop();
-    cout << "Popped ch = " << ch << "\n"; 
+    cout << "Popped ch = [" << ch << "]\n"; 
     ch = myfifo.pop();
-    cout << "Popped ch = " << ch << "\n"; 
+    cout << "Popped ch = [" << ch << "]\n"; 
     ch = myfifo.pop();
-    cout << "Popped ch = " << ch << "\n"; 
+    cout << "Popped ch = [" << ch << "]\n"; 
 
     delete [] elems;
     return 0;

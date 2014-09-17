@@ -22,6 +22,7 @@ class Fifo
       ~Fifo();
       void push(char ch);
       char pop(void);
+      char print(void);
       inline bool isEmpty(void) { return (m_Size == 0)?true: false;}
       inline bool isFull(void)  { return (m_Size == MAX_NUM) ? true: false;} 
 

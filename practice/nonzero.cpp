@@ -29,15 +29,15 @@ int shuffle(int* arr, int size)
             if(arr[i] != 0)
             {
                 nonZeroCount++;
-                arr[j] = arr[i];
+                arr[j] = arr[i]; // Fill in the non zero values from the start of the array
                 j++;
             }
         } 
 
-        for (k = nonZeroCount; k < size ; k++)
+        for (k = nonZeroCount; k < size ; k++) // rest of the elements are put after the last non zero...
         {
             //cout << "Inserting 0 at index k = " << k << "\n";
-            arr[k] = 0;
+            arr[k] = 0; //  ... and rest of the elements must all be zero by defintion!
         }
         return nonZeroCount;
     }

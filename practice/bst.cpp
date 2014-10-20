@@ -188,8 +188,8 @@ int maxDepth(NodePtr node)
    return maxD;
 }
 
-/* Find the smallest value of the data stored in the BST: NB: you DON'T have to search the entire
-   tree, since it is stored with decreasing values on the eft branches...*/
+/* Find the smallest value of the data stored in the BST: NB: you DON'T have to search the entire tree, since it is stored with decreasing values on the left branches...*/
+
 int minValue(NodePtr node)
 {
     NodePtr cur = node;

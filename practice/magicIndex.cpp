@@ -1,4 +1,4 @@
-/* CtCI Intreview problem: A magin index is defined as an index of an array 'a', such that a[i] = i for a given value of i. Given that the values of the array are sorted and unique, write a fucntion to find the magic index. Second case: values are not unique, but still sorted: modify the function to take care of this case */
+/* CtCI Intreview problem: A magic index is defined as an index of an array 'a', such that a[i] = i for a given value of i. Given that the values of the array are sorted and unique, write a fucntion to find the magic index. Second case: values are not unique, but still sorted: modify the function to take care of this case */
 
 // e.g. a[11] = {-40, -20, -1, 1, 2, 3, 5, 7, 8, 12, 13};
 

@@ -9,7 +9,7 @@ int divideBitwise( int a, int b);
 
 int divideBitwise( int a, int b) // implements integer division a/b
 {
-    int aa = 0, ab =0, q = 1;
+    int aa = 0, ab =0, q = 1, quotient = 0;
     boolean isNegative = false; // sign of quotient
 
     if( a == 0 ) return 0;
@@ -27,14 +27,25 @@ int divideBitwise( int a, int b) // implements integer division a/b
     do
     {
         ab  <<=  1;
-        q   <<=  1;
-        printf("ab = %d, q = %d\n", ab, q);
+        q   <<= 1;
+        printf("aa = %d, ab = %d\n", aa, ab);
     } 
-    while( ab <= aa);
+    while(ab <= aa);
+    
+    while( ab > 0 )
+    {
+        ab >>= 1;
+        q >>= 1;
+        if (aa >= ab )
+        {
+            aa -= ab;
+            quotient |= q;
+        }
+     }
 
-    (isNegative)? (q = -aa) : (q = aa);
+    (isNegative)? (quotient = -aa) : (quotient = aa);
 
-   return q;
+   return quotient;
 }
  
 int main(int argc, char* argv[])

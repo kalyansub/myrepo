@@ -1,5 +1,5 @@
 /* Program to detect if the machine is little endian or big endian; a little endian machine
-   stores the lower order byte first (i.e., lower meemory address), a big endian machine stores the higher order byte firsr (i.e., in the lower memory address).
+   stores the lower order byte first (i.e., lower memory address), a big endian machine stores the higher order byte first (i.e., in the lower memory address).
 
   $Author$: Kalyan Subramanian
   $email$: kalyan dot sub at gmail dot com
@@ -31,19 +31,20 @@ int main(int argc, char* argv[])
     
     char* byte = (char*)(&i);
 
+    printf("storing 0x%04x in memory...", j); 
     (*byte)? printf("Little endian\n"): printf("Big endian\n");
 
     printf("sizeof unsigned int = %d\n", (unsigned int)sizeof(j));
     for(k = 0; k < sizeof(j); k++)
     {
         byte = (char*)(&j) + k;
-        printf("Memory layout of 0x%04x  = 0x%.2x\n", j, *byte); 
+        printf("Memory location 0x%04x  = 0x%.2x\n", byte, *byte); 
     }
     i = EndianSwap(j); 
     for(k = 0; k < sizeof(j); k++)
     {
         byte = (char*)(&i) + k;
-        printf("Endian swapped memory layout of 0x%04x = 0x%.2x\n", j, *byte);
+        printf("Endian swapped storage at memory location of 0x%04x = 0x%.2x\n", byte, *byte);
     }
 
    return 0;

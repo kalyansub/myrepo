@@ -1,0 +1,1 @@
+g++ -g -Wfatal-errors -std=c++11 topmofn.cpp -lpthread -o topmofn

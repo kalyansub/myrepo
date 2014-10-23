@@ -32,9 +32,10 @@ void lastAccessTime(char *filePath, time_t* rawtime)
  */
 int main(int argc, char* argv[])
 {
-    char f1[16];
-    char f2[16];
-    char f3[16];
+    char f1[128];
+    char f2[128];
+    char f3[128];
+
     time_t actime1, actime2, actime3;
     time_t timeArray[3];
     int maxindex = 0;
@@ -42,12 +43,13 @@ int main(int argc, char* argv[])
     if (argc < 4)
     {
         printf("Usage: %s <file path1> <file path2> <file path 3>\n", argv[0]); 
+        return -1;
     }
     else
     {
-        strncpy(f1, argv[1], sizeof(argv[1]));      
-        strncpy(f2, argv[2], sizeof(argv[2]));      
-        strncpy(f3, argv[3], sizeof(argv[3]));      
+        strncpy(f1, argv[1], strlen(argv[1]));      
+        strncpy(f2, argv[2], strlen(argv[2]));      
+        strncpy(f3, argv[3], strlen(argv[3]));      
 
         lastAccessTime(f1, &actime1);
         lastAccessTime(f2, &actime2);

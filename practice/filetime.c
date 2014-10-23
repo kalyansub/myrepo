@@ -20,7 +20,7 @@ void lastAccessTime(char *filePath, time_t* rawtime)
     struct tm* timestamp;
     struct tm tmp;
 
-    timestamp = localtime(&(attrib.st_ctime));
+    timestamp = localtime(&(attrib.st_atime));
 
     *rawtime = mktime(timestamp);
 }

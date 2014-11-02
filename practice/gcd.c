@@ -1,4 +1,4 @@
-/* An algorithm to recursively compute the Greatest Common Divisor (GDC) of two intgers.
+/* An algorithm to recursively compute the Greatest Common Divisor (GCD) of two intgers.
  * $Author$: Kalyan Subramanian
  * $Date$: Nov 2, 2014
  * $email$: kalyan dot sub at gmail dot com

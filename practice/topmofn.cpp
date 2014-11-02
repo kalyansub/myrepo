@@ -191,7 +191,7 @@ int main(int argc, char* argv[])
     {
         pthread_join(threads[i], NULL);
     }
-
+#if 0
     // Find the top m elements of the merged result to get the final answer...
     std::nth_element(result.begin(), result.end() - m, result.end());
     std::partition(result.begin(), result.end(), Pred(*(result.end() - m)));
@@ -200,9 +200,9 @@ int main(int argc, char* argv[])
     {
         if (c1 == m) break;
     }
-
+#endif
     ofstream rfs("results.txt");
-    for(int i = 0; i < c1; ++i)
+    for(int i = 0; i < m; ++i)
     {
         rfs << result[i] << endl;
     }

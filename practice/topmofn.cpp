@@ -32,7 +32,8 @@ using namespace std;
 // Global vector for merged results
 vector<int> result;
 
-
+bool mycomparefn(int i,int j) { return (i>j); }
+ 
 // Setup predicate object required by patrition algorithm ...
 struct Pred 
 {
@@ -97,6 +98,7 @@ void* top_m(void* threadContext)
             if (c == m) break;
             result.push_back(*it); 
         }
+        std::sort(result.begin(), result.end(), mycomparefn);
     }
 }
 

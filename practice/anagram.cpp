@@ -16,7 +16,7 @@ void createHashMap(string s, char freqChar[], unordered_map<char, int> htable)
 {
     for(int i = 0; i < s.length(); ++i)
     {
-        char ch = (int)(s[i]);
+        int ch = (int)(s[i]);
         freqChar[ch++];
         htable.insert(pair<char, int>(ch, freqChar[ch])) ;
     }

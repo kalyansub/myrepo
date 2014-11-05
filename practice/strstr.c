@@ -7,8 +7,10 @@
 #include <assert.h>
 #include <string.h>
 
+#define MAX_SEARCH_LENGTH 128
+#define MAX_STRING_LENGTH 1024
 
-int length(char* str)
+int length(const char* str)
 {
     int len = 0;
 
@@ -21,36 +23,52 @@ int length(char* str)
 
 char* findString(const char *haystack, const char *needle)
 {
-    const char *a = haystack, *b = needle;  
+    const char *hp = haystack, *np = needle;  
+    int orig_np_length = length(needle);
     for (;;)  
     {
-        if (!*b)
+        if (!*np)
         {
-            return (char *)a;  
+            printf("Reached the end of the sub string... np = %c, hp = %c\n", *np, *hp);
+            return (char *)(np - orig_np_length);
         }
-        else if (!*a) 
+        else if (!*hp) 
         {
+           printf("Reached the end of the super string...\n");
            return NULL;  
         }
-        else if (*a++ != *b++)
+        else if (*hp++ != *np++)
         { 
-            a = ++haystack;
-            b = needle;
+            hp = ++haystack;
+            printf("hp = %c\n", *hp);
+            np = needle;
+            printf("np = %c\n", *np);
         }  
+        printf("\n");
     }
+    printf("Done!\n");
 }
 
-int main(int agrc, char* argv[])
+int main(int argc, char* argv[])
 {
-    char needle[4];
-    char haystack[10];
+    char needle[MAX_SEARCH_LENGTH];
+    char haystack[MAX_STRING_LENGTH];
     char* foundStr;
 
     printf("Enter the super string:\n");
     scanf("%s", haystack);
     printf("Enter the sub string : \n");
     scanf("%s", needle);
+
     foundStr = findString(haystack, needle);
-    if (foundStr) printf("found %s\n", foundStr);
+    if (foundStr)
+    {
+        printf("found %s\n", foundStr);
+    }
+    else
+    {
+        printf("Search string : [%s] NOT found in super string : [%s]\n", needle, haystack);
+    }
+
     return 0; 
 }

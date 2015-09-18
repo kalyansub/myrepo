@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Back	dq.cpp	/^int Deque::Back()$/;"	f	class:Deque
+DQ_H	dq.h	2;"	d
+Deque	dq.cpp	/^Deque::Deque()$/;"	f	class:Deque
+Deque	dq.h	/^class Deque$/;"	c
+Front	dq.cpp	/^int Deque::Front()$/;"	f	class:Deque
+InsertBack	dq.cpp	/^void Deque::InsertBack(int element)$/;"	f	class:Deque
+InsertFront	dq.cpp	/^void Deque::InsertFront(int element)$/;"	f	class:Deque
+Node	dq.h	/^class Node$/;"	c
+RemoveBack	dq.cpp	/^int Deque::RemoveBack()$/;"	f	class:Deque
+RemoveFront	dq.cpp	/^int Deque::RemoveFront()$/;"	f	class:Deque
+Size	dq.cpp	/^int Deque::Size()$/;"	f	class:Deque
+count	dq.h	/^    int count;$/;"	m	class:Deque
+data	dq.h	/^    int data;$/;"	m	class:Node
+front	dq.h	/^    Node* front;$/;"	m	class:Deque
+isEmpty	dq.cpp	/^bool Deque::isEmpty()$/;"	f	class:Deque
+next	dq.h	/^    Node* next;$/;"	m	class:Node
+prev	dq.h	/^    Node* prev;$/;"	m	class:Node
+rear	dq.h	/^    Node* rear;$/;"	m	class:Deque
+~Deque	dq.cpp	/^Deque::~Deque()$/;"	f	class:Deque

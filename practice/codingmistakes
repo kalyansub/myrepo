@@ -1,0 +1,29 @@
+Coding practice for C++ interviews: 
+==================================
+
+DAY1 : Wed 8/6/2014
+
+1. Declaring a string as a char* and trying to strcpy() into it without allocating memory - crash! Debugged it easily with gdb and backtrace showed a smoking gun at the point of strcpy into a un-initialized pointer! Duh!
+
+2. I don't know why empty destructors are not allowed in the class definiton with g++; it seems to prefer an auto-generated destructor by the compiler. If I delcare my destructors like this:
+
+class Name{
+
+   public:
+   //...
+   ~Name();
+
+}
+
+
+the linker gives me an undefined refernece error when used with the STL class "pair <Ta, Tb>". I can't get rid of it except by commeting out the line where I declared it. This has me scratching my head....
+STATUS 10:58 PM tonight: 
+-----------------------
+I figured this one out. Nothing to do with STL. Simple C++ error: I had **declared** a destructor such as "~Name()" in the phonebook.h file, but **Provided NO implementation!**. Of course the linker was confused: it simply said, "Dude where is my destructor implementation??" - albeit in it's own cryptic way :); solution: Name::~Name() {} does the trick; I was WRONG in assuming the g++ compiler would automagically generate a destructor for me - it seems to not do that...!
+--------------------
+
+Thu 8/7/14:
+----------
+Wrote a program called maxIndex.c to determine places in an array of integers where maximum values appear - e.g., {1, 2, 9, 3, 4, 5, 6, 9, 7, 8, 9} - this is apparently a FB question. The problem required the solution to print out indices of the apperance of the max val at random, i.e. from the above example, the max val is 9, it apprears at indices (2, 6, 10), so print out one of these numbers at random everytime the program runs...
+
+Problems faced: I solved the basic problem of finding the indices, but struggled to get the indices into an array - needed to determine the size of the array of indices where max is found, but you cant know the size till you've found all of the max values! So I just calloced an array of max size based on the input array size. Also, getting rand() to work proved tricky, so I wrote a separate random number function that worked to generate random integers between 0 and 6. The idea is to cast the result of rand()/RAND_MAX to a float and then use that to scale to the max integer you want as a random value. See randNum.c.

@@ -9,20 +9,23 @@
 #include <unordered_map>
 using namespace std;
 
-char freqCharA[256];  // intentionally declared global, as it will be auto-initialized to all 0's...
-char freqCharB[256];  // intentionally declared global, as it will be auto-initialized to all 0's...
-
-void createHashMap(string s, char freqChar[], unordered_map<char, int> htable)
+bool isAnagram(string s, string t) 
 {
-    for(int i = 0; i < s.length(); ++i)
-    {
-        int ch = (int)(s[i]);
-        freqChar[ch++];
-        htable.insert(pair<char, int>(ch, freqChar[ch])) ;
-    }
-
+        if (s.size() != t.size())
+            return false;
+        
+        unordered_map<char, int> table;
+        for (char& ch : s)
+            table[ch]++;
+        for (char& ch : t)
+            table[ch]--;
+        for (auto it = table.begin(); it != table.end(); it++)
+            if ((*it).second != 0)
+                return false;
+        return true;
 }
 
+/* This doesn't work!
 bool isAnagram(string a, string b)
 {
     if (a.length() != b.length())
@@ -38,7 +41,7 @@ bool isAnagram(string a, string b)
     // Use the powerful comparison operator for unordered_maps, i.e. "==" !
    return (htableA == htableB)? true: false;
 }
-
+*/
 int main(int argc, char* argv[])
 {
     if (argc < 3)

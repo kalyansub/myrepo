@@ -1,7 +1,9 @@
 // Check if two given strings are anagrams of each other
-// This solution leverages the powerful comparison operator for unordered maps!
+// This solution uses unordered_map which is STL for hash maps. 
+// A single hasmap makes up a hostogram which we increment for characters occuring in one string and 
+// decrement for corresponding characters in the second one
 // $Author$: Kalyan Subramanian
-// $Date$: Nov 2, 2014
+// $Date$: Mar 16, 2020
 // $email$: kalyan dot sub at gmail dot com
 //
 #include <iostream>
@@ -25,23 +27,6 @@ bool isAnagram(string s, string t)
         return true;
 }
 
-/* This doesn't work!
-bool isAnagram(string a, string b)
-{
-    if (a.length() != b.length())
-    {
-        return false;
-    }
-
-    int counter = 0; 
-    unordered_map<char, int> htableA;
-    unordered_map<char, int> htableB;
-    createHashMap(a, freqCharA, htableA);
-    createHashMap(b, freqCharB, htableB);
-    // Use the powerful comparison operator for unordered_maps, i.e. "==" !
-   return (htableA == htableB)? true: false;
-}
-*/
 int main(int argc, char* argv[])
 {
     if (argc < 3)
